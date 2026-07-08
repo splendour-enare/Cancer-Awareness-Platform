@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Breast Cancer Prevention Tips</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="main-header">
+  <div class="header-left">
+    <span class="material-symbols-outlined header-icon">health_and_safety</span>
+    <h2 class="header-title">Breast Cancer Prevention</h2>
+  </div>
+</header>
+
+<section class="resources-grid">
+  <% if (resources.length === 0) { %>
+    <p class="no-resources">No prevention tips have been added yet.</p>
+  <% } else { %>
+    <% resources.forEach((res, index) => { %>
+      <div class="resource-card" data-index="<%= index %>">
+        <img src="<%= res.image %>" alt="<%= res.title %>">
+        <h3><%= res.title %></h3>
+        <p><%= res.content.substring(0, 100) %>...</p>
+      </div>
+    <% }) %>
+  <% } %>
+</section>
+
+<!-- POP-UP MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <span class="close-btn" id="closeModal">&times;</span>
+    <img id="modalImage" src="" alt="">
+    <h3 id="modalTitle"></h3>
+    <p id="modalContent"></p>
+  </div>
+</div>
+
+<script>
+  const resources = <%- JSON.stringify(resources) %>;
+  const modal = document.getElementById('modalOverlay');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalContent = document.getElementById('modalContent');
+  const modalImage = document.getElementById('modalImage');
+  const closeModal = document.getElementById('closeModal');
+
+  document.querySelectorAll('.resource-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const index = card.dataset.index;
+      const res = resources[index];
+
+      modalTitle.textContent = res.title;
+      modalContent.textContent = res.content;
+      modalImage.src = res.image;
+
+      modal.classList.add('show');
+    });
+  });
+
+  closeModal.addEventListener('click', () => {
+    modal.classList.remove('show');
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('show');
+    }
+  });
+</script>
+
+</body>
+</html>

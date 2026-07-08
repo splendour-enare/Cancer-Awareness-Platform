@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+  <%- include('./partials/admin-sidebar') %>
+
+  <main class="admin-main">
+
+    <%- include('./partials/admin-header') %>
+
+    <section class="admin-section">
+      <p>Add and manage breast and prostate cancer educational content.</p>
+    </section>
+
+    <!-- BREAST CANCER RESOURCES -->
+    <section class="resource-card">
+      <h3>Breast Cancer Resources</h3>
+
+      <!-- Prevention Tips -->
+      <form action="/resources/breast/prevention" method="POST" class="resource-form" enctype="multipart/form-data">
+        <h4>Prevention Tips</h4>
+
+        <label>Title</label>
+        <input type="text" name="title" required>
+
+        <label>Content</label>
+        <textarea name="content" rows="150" required></textarea>
+
+        <label>Front Cover Image</label>
+        <input type="file" name="image" accept="image/*" required>
+
+        <button type="submit" class="dark-btn">Add Prevention Tip</button>
+      </form>
+
+      <!-- Understanding Risks -->
+      <form action="/resources/breast/risks" method="POST" class="resource-form" enctype="multipart/form-data">
+        <h4>Understanding Risks</h4>
+
+        <label>Title</label>
+        <input type="text" name="title" required>
+
+        <label>Content</label>
+        <textarea name="content" rows="150" required></textarea>
+
+        <label>Front Cover Image</label>
+        <input type="file" name="image" accept="image/*" required>
+
+        <button type="submit" class="dark-btn">Add Risk Information</button>
+      </form>
+    </section>
+
+    <!-- PROSTATE CANCER RESOURCES -->
+    <section class="resource-card">
+      <h3>Prostate Cancer Resources</h3>
+
+      <!-- Prevention Tips -->
+      <form action="/resources/prostate/prevention" method="POST" class="resource-form" enctype="multipart/form-data">
+        <h4>Prevention Tips</h4>
+
+        <label>Title</label>
+        <input type="text" name="title" required>
+
+        <label>Content</label>
+        <textarea name="content" rows="150" required></textarea>
+
+        <label>Front Cover Image</label>
+        <input type="file" name="image" accept="image/*" required>
+
+        <button type="submit" class="dark-btn">Add Prevention Tip</button>
+      </form>
+
+      <!-- Understanding Risks -->
+      <form action="/resources/prostate/risks" method="POST" class="resource-form" enctype="multipart/form-data">
+        <h4>Understanding Risks</h4>
+
+        <label>Title</label>
+        <input type="text" name="title" required>
+
+        <label>Content</label>
+        <textarea name="content" rows="150" required></textarea>
+
+        <label>Front Cover Image</label>
+        <input type="file" name="image" accept="image/*" required>
+
+        <button type="submit" class="dark-btn">Add Risk Information</button>
+      </form>
+    </section>
+
+  </main>
+</div>
+
+<script src="/js/admin-sidebar.js" defer></script>
+
+</body>
+</html>

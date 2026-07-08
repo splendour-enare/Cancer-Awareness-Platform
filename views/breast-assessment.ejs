@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Breast Cancer Risk Assessment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+<header class="main-header">
+  <div class="header-left">
+    <span class="material-symbols-outlined header-icon">health_and_safety</span>
+    <h2 class="header-title">Stay Informed</h2>
+  </div>
+</header>
+
+<section class="card">
+
+  <h2>Breast Cancer Risk Assessment</h2>
+  <p id="progress">Question 1 of 15</p>
+
+  <!-- TEXT TO SPEECH -->
+  <div class="tts-controls">
+    <button id="speakBtn">
+      <span class="material-symbols-outlined">volume_up</span>
+    </button>
+    <button id="stopBtn">
+      <span class="material-symbols-outlined">stop</span>
+    </button>
+  </div>
+
+  <form id="assessmentForm">
+
+    <!-- ========= A. RISK AWARENESS ========= -->
+
+    <div class="question active">
+      <label>Are you 20 years or older?</label>
+      <div class="options" data-yes>
+        <button type="button" class="option" data-value="No">No</button>
+        <button type="button" class="option" data-value="Yes">Yes</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <label>Do you have a family history of breast cancer?</label>
+      <div class="options" data-yes>
+  <button type="button" class="option" data-value="No">No</button>
+  <button type="button" class="option" data-value="Yes">Yes</button>
+</div>
+    </div>
+
+    <div class="question">
+      <label>Have you ever been informed that you are at increased risk for breast cancer?</label>
+      <div class="options" data-yes>
+  <button type="button" class="option" data-value="No">No</button>
+  <button type="button" class="option" data-value="Yes">Yes</button>
+</div>
+    </div>
+
+    <div class="question">
+      <label>Do you consume alcohol frequently?</label>
+      <div class="options" data-yes>
+  <button type="button" class="option" data-value="No">No</button>
+  <button type="button" class="option" data-value="Yes">Yes</button>
+</div>
+    </div>
+
+    <div class="question">
+      <label>Do you perform breast self-checks occasionally or regularly?</label>
+      <div class="options" data-yes>
+  <button type="button" class="option" data-value="No">No</button>
+  <button type="button" class="option" data-value="Yes">Yes</button>
+</div>
+    </div>
+
+    <!-- ========= B. VISUAL & TOUCH ========= -->
+
+    <div class="question">
+      <label>Have you noticed a new lump or thickened area in your breast or underarm?</label>
+      <div class="options" data-yes>
+  <button type="button" class="option" data-value="No">No</button>
+  <button type="button" class="option" data-value="Yes">Yes</button>
+</div>
+    </div>
+
+    <div class="question">
+      <label>Does the lump persist after your menstrual cycle?</label>
+      <div class="options" data-yes>
+  <button type="button" class="option" data-value="No">No</button>
+  <button type="button" class="option" data-value="Yes">Yes</button>
+</div>
+    </div>
+
+    <div class="question">
+      <label>Have you noticed changes in breast size or shape?</label>
+      <div class="options" data-yes>
+  <button type="button" class="option" data-value="No">No</button>
+  <button type="button" class="option" data-value="Yes">Yes</button>
+</div>
+    </div>
+
+    <div class="question">
+      <label>Is there unusual swelling in one breast?</label>
+      <div class="options" data-yes>
+  <button type="button" class="option" data-value="No">No</button>
+  <button type="button" class="option" data-value="Yes">Yes</button>
+</div>
+    </div>
+
+    <div class="question">
+      <label>Have you noticed persistent breast pain not linked to your cycle?</label>
+      <div class="options" data-yes>
+  <button type="button" class="option" data-value="No">No</button>
+  <button type="button" class="option" data-value="Yes">Yes</button>
+</div>
+    </div>
+
+    <!-- ========= C. SKIN & NIPPLE ========= -->
+
+    <div class="question">
+      <label>Have you observed skin dimpling, redness, or puckering?</label>
+      <div class="options" data-yes>
+  <button type="button" class="option" data-value="No">No</button>
+  <button type="button" class="option" data-value="Yes">Yes</button>
+</div>
+    </div>
+
+    <div class="question">
+      <label>Have you noticed nipple inversion that was not present before?</label>
+      <div class="options" data-yes>
+  <button type="button" class="option" data-value="No">No</button>
+  <button type="button" class="option" data-value="Yes">Yes</button>
+</div>
+    </div>
+
+    <div class="question">
+      <label>Is there discharge from the nipple that is not breast milk?</label>
+      <div class="options" data-yes>
+  <button type="button" class="option" data-value="No">No</button>
+  <button type="button" class="option" data-value="Yes">Yes</button>
+</div>
+    </div>
+
+    <div class="question">
+      <label>Have you experienced itching, scaling, or sores on the nipple area?</label>
+      <div class="options" data-yes>
+  <button type="button" class="option" data-value="No">No</button>
+  <button type="button" class="option" data-value="Yes">Yes</button>
+</div>
+    </div>
+
+    <div class="question">
+      <label>Have you noticed unexplained warmth or inflammation of the breast?</label>
+      <div class="options" data-yes>
+  <button type="button" class="option" data-value="No">No</button>
+  <button type="button" class="option" data-value="Yes">Yes</button>
+</div>
+    </div>
+
+    <!-- NAV -->
+    <div class="nav-buttons">
+      <button type="button" id="prevBtn" class="gradient-btn">Back</button>
+      <button type="button" id="nextBtn" class="gradient-btn" disabled>Next</button>
+    </div>
+
+  </form>
+
+  <!-- RESULT -->
+  <div id="resultBox" class="hidden">
+    <h3 id="resultTitle"></h3>
+    <p id="resultMessage"></p>
+
+    <button onclick="window.location.href='/breast-resources'" class="gradient-btn full-width">
+      Go to Educational Resources
+    </button>
+  </div>
+
+</section>
+
+<script>
+  const questions = document.querySelectorAll(".question");
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
+  const progress = document.getElementById("progress");
+  const form = document.getElementById("assessmentForm");
+  const resultBox = document.getElementById("resultBox");
+
+  const speakBtn = document.getElementById("speakBtn");
+  const stopBtn = document.getElementById("stopBtn");
+
+  // Passed from server (session user)
+  const CURRENT_USER_ID = "<%= userId %>";
+
+  let current = 0;
+  let answers = [];
+  let speechUtterance = null;
+
+  /* SHOW QUESTION */
+  function showQuestion(index) {
+    questions.forEach(q => q.classList.remove("active"));
+    questions[index].classList.add("active");
+
+    progress.textContent = `Question ${index + 1} of ${questions.length}`;
+    prevBtn.style.display = index === 0 ? "none" : "inline-block";
+    nextBtn.textContent = index === questions.length - 1 ? "Submit" : "Next";
+
+    // Disable next until answered
+    nextBtn.disabled = answers[index] === undefined;
+  }
+
+  /* OPTION SELECTION */
+  document.querySelectorAll(".options").forEach((group, qIndex) => {
+    group.querySelectorAll(".option").forEach(btn => {
+      btn.addEventListener("click", () => {
+        // Clear previous selection
+        group.querySelectorAll(".option").forEach(o =>
+          o.classList.remove("selected")
+        );
+
+        // Select current
+        btn.classList.add("selected");
+        answers[qIndex] = btn.dataset.value;
+
+        // Enable next
+        nextBtn.disabled = false;
+      });
+    });
+  });
+
+  /* TEXT TO SPEECH */
+  function speakQuestion() {
+    if (!("speechSynthesis" in window)) return;
+
+    const label = questions[current].querySelector("label");
+    if (!label) return;
+
+    window.speechSynthesis.cancel();
+
+    speechUtterance = new SpeechSynthesisUtterance(
+      label.textContent.trim()
+    );
+    speechUtterance.lang = "en-US";
+    speechUtterance.rate = 0.95;
+    speechUtterance.pitch = 1;
+
+    window.speechSynthesis.speak(speechUtterance);
+  }
+
+  speakBtn.addEventListener("click", speakQuestion);
+  stopBtn.addEventListener("click", () =>
+    window.speechSynthesis.cancel()
+  );
+
+  /* SCORE CALCULATION */
+  function calculateScore() {
+    return answers.filter(a => a === "Yes").length;
+  }
+
+  /* SAVE RISK TO DATABASE */
+  function sendRiskToServer(riskLevel) {
+    fetch("/breast-cancer-risk", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        userId: CURRENT_USER_ID,
+        riskLevel
+      })
+    })
+    .then(res => res.json())
+    .then(data => console.log("Risk saved:", data))
+    .catch(err => console.error("Error saving risk:", err));
+  }
+
+  /* SHOW RESULT */
+  function showResult(score) {
+    let title = "";
+    let message = "";
+
+    if (score <= 4) {
+      title = "Low Risk / Low Immediate Concern";
+      message =
+        "Continue healthy practices and routine self-checks. Stay informed.";
+    } else if (score <= 9) {
+      title = "Moderate Risk";
+      message =
+        "Screening and clinical evaluation are encouraged. Please consider visiting a health facility.";
+    } else {
+      title = "High Risk";
+      message =
+        "Immediate medical referral is recommended. Please see a healthcare professional as soon as possible.";
+    }
+
+    document.getElementById("resultTitle").textContent = title;
+    document.getElementById("resultMessage").textContent = message;
+
+    form.classList.add("hidden");
+    progress.classList.add("hidden");
+    resultBox.classList.remove("hidden");
+
+    // Save risk
+    sendRiskToServer(title);
+  }
+
+  /* NAVIGATION */
+  nextBtn.addEventListener("click", () => {
+    if (current < questions.length - 1) {
+      current++;
+      showQuestion(current);
+    } else {
+      showResult(calculateScore());
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (current > 0) {
+      current--;
+      showQuestion(current);
+    }
+  });
+
+  showQuestion(current);
+</script>
+
+
+</body>
+</html>

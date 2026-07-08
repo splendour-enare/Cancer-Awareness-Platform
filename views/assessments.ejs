@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+  <%- include('./partials/admin-sidebar') %>
+
+  <main class="admin-main">
+
+    <%- include('./partials/admin-header') %>
+
+    <section class="stats-grid">
+
+      <div class="stat-card">
+        <h4>Total Assessments Taken</h4>
+        <p><%= assessmentStats?.total || 0 %></p>
+      </div>
+
+      <div class="stat-card low-risk">
+        <h4>Low Risk</h4>
+        <p><%= assessmentStats?.low || 0 %></p>
+      </div>
+
+      <div class="stat-card moderate-risk">
+        <h4>Moderate Risk</h4>
+        <p><%= assessmentStats?.moderate || 0 %></p>
+      </div>
+
+      <div class="stat-card high-risk">
+        <h4>High Risk</h4>
+        <p><%= assessmentStats?.high || 0 %></p>
+      </div>
+
+    </section>
+
+    <section class="admin-table">
+      <h3>Risk Distribution</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Risk Level</th>
+            <th>Number of Users</th>
+            <th>Percentage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Low Risk</td>
+            <td><%= assessmentStats?.low || 0 %></td>
+            <td><%= assessmentStats?.lowPercent || 0 %>%</td>
+          </tr>
+          <tr>
+            <td>Moderate Risk</td>
+            <td><%= assessmentStats?.moderate || 0 %></td>
+            <td><%= assessmentStats?.moderatePercent || 0 %>%</td>
+          </tr>
+          <tr>
+            <td>High Risk</td>
+            <td><%= assessmentStats?.high || 0 %></td>
+            <td><%= assessmentStats?.highPercent || 0 %>%</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+</div>
+
+<script src="/js/admin-sidebar.js" defer></script>
+
+</body>
+</html>
